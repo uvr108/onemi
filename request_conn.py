@@ -1,11 +1,20 @@
 import requests
 from random import seed
 from random import random
+import configparser
 
 def request():
     try:
 
-        response = requests.get("http://10.54.217.85:3000/api/estacion")
+        config = configparser.ConfigParser()
+        config.read("config.ini")
+
+        serverinfo = config["SERVERCONFIG"]
+
+        restfull = format(serverinfo["restfull"])
+
+
+        response = requests.get(f"http://{restfull}:3000/api/estacion/-20/-60/0/true/false/false")
         response.raise_for_status()
 
         resp = response.json()
@@ -16,7 +25,7 @@ def request():
             net = r['Network']['nombre']
             if len(net) == 1:
                 net = net + ' ';
-            st.append([net.rstrip(), r['code']])
+            st.append([net.rstrip(), r['codigo']])
 
         return st
 
@@ -29,3 +38,14 @@ def request():
     except requests.exceptions.RequestException as err:
         print(err)
 
+def main():
+
+
+    stations=[]
+    i=0
+    for st in  request():
+        print(st[0],st[1])
+
+if __name__ == "__main__":
+
+    main()

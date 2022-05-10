@@ -1,14 +1,10 @@
 from obspy.clients.seedlink import EasySeedLinkClient
-# from rethinkdb import RethinkDB
-# import requests
-from mylibrary import request
+from request_conn import request
 from tasktools.taskloop import TaskLoop
-# import asyncio
 from random import seed
 from random import random
 import asyncio
 from multiprocessing import Pool
-# from data_rdb import Rethink_DBS
 from rich import print
 import pika
 import json
@@ -47,17 +43,17 @@ class MyClient(EasySeedLinkClient):
             'latency': latency
         }
         print("New data received", new_data)
-        # r.db('csn').table('indicadores').insert(new_data).run()
-
-        connection = pika.BlockingConnection( pika.ConnectionParameters(host='localhost') )
+       
+        # credentials = pika.PlainCredentials('ulises', 'optiplex') 
+        connection = pika.BlockingConnection( pika.ConnectionParameters(host='127.0.0.1'))
         
         channel = connection.channel()
 
         channel.basic_publish(
             exchange='logs', 
             routing_key='',
-            # properties=pika.BasicProperties( content_type='text/json' ),
-            body=json.dumps(new_data))
+            body=json.dumps(new_data)
+            )
 
         connection.close()
 
@@ -101,9 +97,8 @@ def main():
     stations=[]
     i=0
     for st in  request():
-        if st[0] != 'GPS':
             stations.append([st[0],st[1]])
-            # print(st[0],st[1].rstrip()) 
+            print(st[0],st[1].rstrip()) 
 
     tasks = []
     component = "HHZ"
