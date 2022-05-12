@@ -39,10 +39,10 @@ class MyClient(EasySeedLinkClient):
             # 'delta': delta, 
             # 'channel': channel, 
             # 'starttime': starttime,  
-            # 'endtime': endtime
+            'endtime': endtime,
             'latency': latency
         }
-        print("New data received", new_data)
+        # print("New data received", new_data)
        
         # credentials = pika.PlainCredentials('ulises', 'optiplex') 
         connection = pika.BlockingConnection( pika.ConnectionParameters(host='127.0.0.1'))
@@ -101,11 +101,11 @@ def main():
             print(st[0],st[1].rstrip()) 
 
     tasks = []
-    component = "HHZ"
+    component = "H?Z"
     #args = [create, select, run, network, component, client]
     args = [True, False, False, stations, component, None]
     kwargs = {
-        "address":'10.54.217.12:18000'
+        "address":'10.54.217.11:18000'
     }
     task  = TaskLoop(
         extract_data, 

@@ -10,6 +10,8 @@ import pika
 import threading
 import json
 
+from datetime import datetime
+
 from multiprocessing import Process
 
 from random import uniform
@@ -37,8 +39,10 @@ def getstat():
 
     def callback(ch, method, properties, body):
         stats = json.loads(body)
+        
         try:
-            sismologicas[stats['station']] =  stats['latency']
+            sismologicas[stats['station']] =  [stats['latency'], stats['endtime']]
+            # print(sismologicas)
         except Exception as e:
             print("Oops!", e.__class__, "occurred.")
         finally:
@@ -50,7 +54,7 @@ def getstat():
     channel.start_consuming()
     
 
-def getdelay():
+def stations():
 
     return sismologicas 
 
@@ -62,8 +66,6 @@ def gps(stat):
 
 def recibe():
 
-    pass
-    """
     r = RethinkDB()
     rethink_conn = r.connect(host='localhost', port=28015)
    
@@ -74,13 +76,13 @@ def recibe():
         new = change['new_val']
         try:
             stat = new['station'] 
-            late = new['latency']
-            sismologicas[stat] = late
+            retraso = new['info']['delta_time']
+            sismologicas[stat] = ['',  retraso ] 
+            # sismologicas[stat] = new['info'] 
         except Exception as e:
             print("Oops!", e.__class__, "occurred.")
         finally:
             pass
-    """
  
 
 app = FastAPI()
@@ -107,7 +109,7 @@ def mostra_ulimon():
 
 @app.get("/stations")
 def mostra():
-    return getdelay() 
+    return stations() 
 
 
 @app.get("/sismo/{net}/{stat}")

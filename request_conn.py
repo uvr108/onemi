@@ -14,7 +14,7 @@ def request():
         restfull = format(serverinfo["restfull"])
 
 
-        response = requests.get(f"http://{restfull}:3000/api/estacion/-20/-60/0/true/false/false")
+        response = requests.get(f"http://{restfull}:3000/api/estacion/-20/-60/0/true/false/true")
         response.raise_for_status()
 
         resp = response.json()
