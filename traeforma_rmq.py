@@ -10,13 +10,14 @@ import pika
 import json
 import time
 import calendar
+import configparser
 
 # r = RethinkDB()
 # r.connect( "10.54.217.85", 28015).repl()
 
 
 class MyClient(EasySeedLinkClient):
-    
+
     def on_data(self, trace):
         # print("Received", trace)
         network = trace.stats.network
@@ -57,13 +58,17 @@ class MyClient(EasySeedLinkClient):
 
         connection.close()
 
+
 async def extract_data(
     create, 
     select, 
     run, 
     stations, 
     component, 
-    client, *args, **kwargs):
+    client,
+    *args,
+    **kwargs):
+
     if create:
         address = kwargs.get("address")
         print(f"Connecting to {address}")
@@ -90,24 +95,32 @@ async def extract_data(
         await asyncio.sleep(30)
     return [create, select, run, stations, component, client], kwargs
 
+
 def main():
 
     # time.sleep(15)   
- 
-    stations=[]
-    i=0
-    for st in  request():
+
+    home_project = '/home/ulises/Documentos/Projectos/Python/onemi'
+
+    config = configparser.ConfigParser()
+    config.read(f"{home_project}/config.ini")
+    serverinfo = config["SERVERCONFIG"]
+    seedlink = format(serverinfo["seedlink"])
+
+    stations = []
+    i = 0
+    for st in request():
             stations.append([st[0],st[1]])
-            print(st[0],st[1].rstrip()) 
+            print(st[0], st[1].rstrip())
 
     tasks = []
     component = "H?Z"
-    #args = [create, select, run, network, component, client]
+    # args = [create, select, run, network, component, client]
     args = [True, False, False, stations, component, None]
     kwargs = {
-        "address":'10.54.217.11:18000'
+        "address": seedlink
     }
-    task  = TaskLoop(
+    task = TaskLoop(
         extract_data, 
         coro_args=args, 
         coro_kwargs=kwargs)
@@ -116,7 +129,8 @@ def main():
     loop = asyncio.get_event_loop()
     if not loop.is_running():
         loop.run_forever()
-    
+
+
 if __name__ == "__main__":
 
     main()

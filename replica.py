@@ -22,7 +22,7 @@ from networktools.geo import (radius, deg2rad, ecef2llh, llh2ecef)
 from networktools.library import geojson2json
 from data_geo import GeoJSONData
 
-
+import configparser
 
 class DBSend(Enum):
     CREATE = 1
@@ -278,15 +278,28 @@ async def db_manage(control, db_insta,  dataset, di, queue, **kwargs):
     return (control, db_insta, dataset, di, queue), kwargs
 
 if __name__ == "__main__":
+
+    home_project = '/home/ulises/Documentos/Projectos/Python/onemi'
+
+    config = configparser.ConfigParser()
+    config.read(f"{home_project}/config.ini")
+    serverinfo = config["SERVERCONFIG"]
+
+    rethink = format(serverinfo["rethinkdb"])
+    collector = format(serverinfo["collector"])
+    rethinkport = format(serverinfo["rethinkport"])
+
+    print(f'rethink -> {rethink} collector-> {collector}')
+
     delta_time = int(os.environ.get("DELTA_TIME", 300))
 
     filename = Path(__file__).parent / "fuentes/station.csv"
     mode = Mode.GSOF
     dataset = read_csv(filename, mode)
     opts = {
-        "host": "10.54.218.39",
-        "port": 28015,
-        "dbname": "collector"
+        "host": f'{rethink}',
+        "port": f'{rethinkport}',
+        "dbname": f'{collector}'
     }
     di = rdb.iso8601(get_datetime_di(delta=delta_time))
     queue = asyncio.Queue()
@@ -308,9 +321,9 @@ if __name__ == "__main__":
     db_insta = None#AsyncRabbit(**opts)
     control = DBSend.CREATE
     args = [queue, dataset, control, db_insta]
-    base_path = Path(__file__).absolute().parent / "data"
+    base_path = Path(__file__).absolute().parent / f"{home_project}/data"
     opts_destiny = {
-        "host": "10.54.223.19",
+        "host": "127.0.0.1",
         "port": 28015,
         "dbname": "csn"
     }

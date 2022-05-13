@@ -6,8 +6,10 @@ import configparser
 def request():
     try:
 
+        home_project = '/home/ulises/Documentos/Projectos/Python/onemi'
+
         config = configparser.ConfigParser()
-        config.read("config.ini")
+        config.read(f"{home_project}/config.ini")
 
         serverinfo = config["SERVERCONFIG"]
 
