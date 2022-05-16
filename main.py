@@ -95,20 +95,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/getstat")
+@app.get("/")
 def read_root():
+    return {"Hello": "World"}
+
+@app.get("/getstat")
+def getstat():
     thread = threading.Thread(target=getstat(), args=()) 
     thread.start()
     return {"Hello": "World"}
 
 @app.get("/recibe")
-def mostra_ulimon():
+def recibe():
     thread = threading.Thread(target=recibe(), args=()) 
     thread.start()
     return {"Hello": "World"}
 
 @app.get("/stations")
-def mostra():
+def stations():
     return stations() 
 
 
@@ -117,6 +121,6 @@ def mostra_graph(net: str, stat: str ):
     return graph(net,stat) 
 
 @app.get("/gps/{stat}")
-def mostra_gps(stat: str):
+def gps(stat: str):
     return gps(stat)
 
