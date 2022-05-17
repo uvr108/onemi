@@ -74,7 +74,7 @@ def add_process_instance(station):
     kwargs['code'] = CODE
     kwargs['station'] = station
     kwargs['position'] = station["POSITION"]
-    kwargs['log_path'] = str(Path("/tmp/log/db") / 'geo_json_data')
+    kwargs['log_path'] = str(Path("./tmp/log/db") / 'geo_json_data')
     process_instance = GeoJSONData(**kwargs)
     return process_instance
 

@@ -100,19 +100,19 @@ def read_root():
     return {"Hello": "World"}
 
 @app.get("/getstat")
-def getstat():
+def mostra_stat():
     thread = threading.Thread(target=getstat(), args=()) 
     thread.start()
     return {"Hello": "World"}
 
 @app.get("/recibe")
-def recibe():
+def mostra_recibe():
     thread = threading.Thread(target=recibe(), args=()) 
     thread.start()
     return {"Hello": "World"}
 
 @app.get("/stations")
-def stations():
+def mostra_stations():
     return stations() 
 
 
