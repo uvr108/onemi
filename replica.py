@@ -279,7 +279,7 @@ async def db_manage(control, db_insta,  dataset, di, queue, **kwargs):
 
 if __name__ == "__main__":
 
-    home_project = '/home/ulises/Documentos/Projectos/Python/onemi'
+    home_project = '/home/uvergara/Projectos/Python/onemi'
 
     config = configparser.ConfigParser()
     config.read(f"{home_project}/config.ini")

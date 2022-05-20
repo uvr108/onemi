@@ -100,12 +100,12 @@ def main():
 
     # time.sleep(15)   
 
-    home_project = '/home/ulises/Documentos/Projectos/Python/onemi'
-
+    home_project = '/home/uvergara/Projectos/Python/onemi'
     config = configparser.ConfigParser()
-    config.read(f"{home_project}/config.ini")
-    serverinfo = config["SERVERCONFIG"]
-    seedlink = format(serverinfo["seedlink"])
+    config.read(f'{home_project}/config.ini')
+
+    serverinfo = config['SERVERCONFIG']
+    seedlink = format(serverinfo['seedlink'])
 
     stations = []
     i = 0
@@ -118,7 +118,7 @@ def main():
     # args = [create, select, run, network, component, client]
     args = [True, False, False, stations, component, None]
     kwargs = {
-        "address": seedlink
+        "address": seedlink 
     }
     task = TaskLoop(
         extract_data, 

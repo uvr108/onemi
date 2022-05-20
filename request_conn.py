@@ -6,7 +6,7 @@ import configparser
 def request():
     try:
 
-        home_project = '/home/ulises/Documentos/Projectos/Python/onemi'
+        home_project = '/home/uvergara/Projectos/Python/onemi'
 
         config = configparser.ConfigParser()
         config.read(f"{home_project}/config.ini")
