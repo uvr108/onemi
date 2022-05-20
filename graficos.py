@@ -24,9 +24,9 @@ def generagraph(net,stat):
     image = f'{timestamp}.png'
 
     pat = f"*{yr}.{jl}"
-    st = read(f"mnt/data/{yr}/{net}/{stat}/HHE.D/{net}*{pat}")
-    st += read(f"mnt/data/{yr}/{net}/{stat}/HHN.D/{net}*{pat}")
-    st += read(f"mnt/data/{yr}/{net}/{stat}/HHZ.D/{net}*{pat}")
+    st = read(f"/mnt/seiscomp/data/{yr}/{net}/{stat}/HHE.D/{net}*{pat}")
+    st += read(f"/mnt/seiscomp/data/{yr}/{net}/{stat}/HHN.D/{net}*{pat}")
+    st += read(f"/mnt/seiscomp/data/{yr}/{net}/{stat}/HHZ.D/{net}*{pat}")
     tr = st[0]
     dt = st[0].stats.starttime
 
@@ -37,7 +37,6 @@ def generagraph(net,stat):
 
     if Path(ruta).is_dir():
         pass 
-        print('Si existe', serverinfo["sismos"]) 
     else:
         os.makedirs(ruta, exist_ok=True) 
     st.plot(outfile=f'{ruta}/{image}', starttime=ahora-310, endtime=ahora-10) 
