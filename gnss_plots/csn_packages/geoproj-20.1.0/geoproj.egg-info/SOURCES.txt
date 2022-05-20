@@ -1,0 +1,12 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+requirements.txt
+setup.cfg
+setup.py
+geoproj/__init__.py
+geoproj/aux.py
+geoproj/const.py
+geoproj/coords.py
+geoproj/proj.py
+geoproj/tools.py

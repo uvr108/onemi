@@ -1,0 +1,9 @@
+Pillow
+cycler
+fonttools
+kiwisolver
+matplotlib
+numpy
+pyparsing
+python-dateutil
+rethinkdb

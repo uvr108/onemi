@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: gnss_plots
+Version: 1.0.0
+Summary: Plot GNSS displacements (CSN internal use)
+Author: Francisco del Campo R.
+Author-email: fdelcampo@csn.uchile.cl
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research :: Developers
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+License-File: LICENSE.txt
+
+==========
+gnss_plots
+==========
+
+License: GPLv3
+
+``gnss-plots`` es un paquete que permite hacer gráficos de series de tiempo,
+consultado coordenadas GNSS de estaciones del CSN a una base de datos RethinkDB.
+Útil para uso interno.
+
+``gnss-plots`` fue desarrollado en el
+`Centro Sismologico Nacional <http://www.csn.uchile.cl>`_ de la
+Universidad de Chile.
+
+----
+
+Author & Maintainer: Francisco del Campo R., fdelcampo@csn.uchile.cl
+
+

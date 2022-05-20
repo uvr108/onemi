@@ -1,0 +1,38 @@
+Metadata-Version: 1.2
+Name: gnss-redb
+Version: 22.1.1
+Summary: Data Base convenience classes and methods (CSN internal use)
+Home-page: UNKNOWN
+Author: Francisco del Campo R.
+Author-email: fdelcampo@csn.uchile.cl
+License: GPLv3
+Description: =========
+        gnss_redb
+        =========
+        
+        License: GPLv3
+        
+        ``gnss_redb`` es un paquete que permite interactuar con bases de datos
+        RethinkDB *ad-hoc* con coordenadas y desplazamientos de estaciones del CSN.
+        Útil para uso interno.
+        
+        ``gnss_redb`` fue desarrollado en el
+        `Centro Sismologico Nacional <http://www.csn.uchile.cl>`_ de la
+        Universidad de Chile.
+        
+        ----
+        
+        Author & Maintainer: Francisco del Campo R., fdelcampo@csn.uchile.cl
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research :: Developers
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5

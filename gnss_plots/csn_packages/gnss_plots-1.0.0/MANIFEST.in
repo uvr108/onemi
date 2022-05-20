@@ -1,0 +1,17 @@
+# Include the license and readme files
+include LICENSE.txt
+include README.rst
+include requirements.txt
+
+# Include the data files, examples and docs
+recursive-include tests *
+
+# Exclude other directories and files
+exclude PKG-INFO
+exclude *.tar.gz
+exclude setup.cfg
+recursive-exclude venv *
+recursive-exclude dist *
+recursive-exclude * __pycache__
+recursive-exclude build *
+recursive-exclude gnss_plots.egg.info *

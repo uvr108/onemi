@@ -1,0 +1,54 @@
+Metadata-Version: 1.2
+Name: geoproj
+Version: 20.1.0
+Summary: Geographic coordinates and cartographic projections
+Home-page: UNKNOWN
+Author: Francisco del Campo R.
+Author-email: fdelcampo@csn.uchile.cl
+License: GPLv3
+Description: ===========
+        ``geoproj``
+        ===========
+        
+        License: GPLv3
+        
+        .. Documentation: http://www.example.com
+        
+        This package allows to transform between geographic coordinates and apply
+        cartographic projections.
+        
+        ``geoproj`` has been developed at the
+        `Centro Sismologico Nacional <http://www.csn.uchile.cl>`_ of
+        Universidad de Chile.
+        
+        
+        Este paquete permite transformar entre coordenadas geográficas y aplicar
+        proyecciones cartograficas.
+        
+        ``geoproj`` fue desarrolado en el
+        `Centro Sismologico Nacional <http://www.csn.uchile.cl>`_ de la
+        Universidad de Chile.
+        
+        
+        .. Usage
+           -----
+        
+        .. The file should use UTF-8 encoding and be written using `reStructuredText
+           <http://docutils.sourceforge.net/rst.html>`_. It
+           will be used to generate the project webpage on PyPI and will be displayed as
+           the project homepage on common code-hosting services, and should be written for
+           that purpose.
+        
+Keywords: geographic coordinates cartographic projections
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research :: Developers
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Geography
+Classifier: Topic :: Scientific/Engineering :: Geodesy
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)Natural Language :: English
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5

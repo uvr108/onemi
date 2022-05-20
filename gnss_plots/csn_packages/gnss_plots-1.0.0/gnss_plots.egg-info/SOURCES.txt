@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+gnss_plots/__init__.py
+gnss_plots/datetime_ticks.py
+gnss_plots.egg-info/PKG-INFO
+gnss_plots.egg-info/SOURCES.txt
+gnss_plots.egg-info/dependency_links.txt
+gnss_plots.egg-info/requires.txt
+gnss_plots.egg-info/top_level.txt
+test/test_plot.py
+test/test_query_arrays.py
+test/test_server_db.py
