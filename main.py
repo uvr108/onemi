@@ -15,7 +15,7 @@ from datetime import datetime
 from multiprocessing import Process
 
 from random import uniform
-# from graficos import generagraph
+from graficos import generagraph
 # from gnss_plot import generaplot
 
 from rethinkdb import RethinkDB
