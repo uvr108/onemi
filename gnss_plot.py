@@ -7,7 +7,7 @@ import os
 
 host = '10.54.218.39'
 port = 28015
-db_name = "collector_atlas"
+db_name = "collector"
 
 def generaplot(stat):
 
@@ -29,7 +29,7 @@ def generaplot(stat):
 
     image = f'{timestamp}.png'
 
-    ruta = f'{directories["gps"]}/{stat}/{jl}'
+    ruta = f'{directories["assets"]}/img/gps/{stat}/{jl}'
     
     print(ruta)
  
@@ -47,7 +47,7 @@ def generaplot(stat):
 
 def main():
 
-    print(generaplot('ATJN'))
+    print(generaplot('BING'))
     
 
 if __name__ == "__main__":

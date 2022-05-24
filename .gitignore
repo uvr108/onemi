@@ -3,5 +3,5 @@ gunicorn
 tmp
 logfile
 *.swp
-formas/
+assets/
 gnss_plots/

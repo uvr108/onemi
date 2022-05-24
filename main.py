@@ -16,7 +16,7 @@ from multiprocessing import Process
 
 from random import uniform
 from graficos import generagraph
-# from gnss_plot import generaplot
+from gnss_plot import generaplot
 
 from rethinkdb import RethinkDB
 
@@ -58,8 +58,8 @@ def stations():
 
     return sismologicas 
 
-def graph(net, stat):
-    return generagraph(net,stat)
+def graph(tipo, net, stat):
+    return generagraph(tipo, net, stat)
 
 def gps(stat):
     return generaplot(stat)
@@ -116,11 +116,11 @@ def mostra_stations():
     return stations() 
 
 
-@app.get("/sismo/{net}/{stat}")
-def mostra_graph(net: str, stat: str ):
-    return graph(net,stat) 
+@app.get("/sismo/{tipo}/{net}/{stat}")
+def mostra_graph(tipo:str, net: str, stat: str ):
+    return graph(tipo, net,stat) 
 
 @app.get("/gps/{stat}")
-def gps(stat: str):
+def mostra_gps(stat: str):
     return gps(stat)
 
